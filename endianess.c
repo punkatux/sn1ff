@@ -12,11 +12,11 @@ bool is_little_endian(void)
 	if(data.bytes[0] == 0x12)
 	{
 		//Big endian
-		return 0;
+		return false;
 	}
 	
 	//Little endian
-	return 1;
+	return true;
 }
 
 /* pointer version
@@ -28,11 +28,11 @@ bool is_little_endian(void)
 	if(*byte == 0x12)
 	{
 		//Big endian
-		return 0;
+		return false;
 	}
 	
 	//Little endian
-	return 1;
+	return true;
 }
 */
 
@@ -47,11 +47,11 @@ bool is_big_endian(void)
 	if(data.bytes[0] == 0x12)
 	{
 		//Big endian
-		return 1;
+		return true;
 	}
 	
 	//Little endian
-	return 0;
+	return false;
 }
 
 /* pointer version
@@ -63,11 +63,11 @@ bool is_big_endian(void)
 	if(*byte == 0x12)
 	{
 		//Big endian
-		return 1;
+		return true;
 	}
 	
 	//Little endian
-	return 0;
+	return false;
 }
 */
 
