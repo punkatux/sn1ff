@@ -71,3 +71,24 @@ bool is_big_endian(void)
 }
 */
 
+U16 hton16(U16 x_host)
+{
+	U8 *ptr = (U8 *) &x_host;
+	U16 x_net = x_host;
+	
+	if(is_little_endian())
+		x_net = (ptr[0] << 8) | ptr[1];
+
+	return x_net;
+}
+
+U32 hton32(U32 x_host)
+{
+	U8 *ptr = (U8 *) &x_host;
+	U32 x_net = x_host;
+	
+	if(is_little_endian())
+		x_net = (ptr[0] << 24) | (ptr[1] << 16) | (ptr[2] << 8) | ptr[3];
+
+	return x_net;
+}
