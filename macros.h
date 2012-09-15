@@ -3,11 +3,20 @@
 
 #include "datatypes.h"
 
-#define hexdump(data)					\
+#define hexdump_var(var)				\
 {												\
-	typeof(data) x = data;				\
-	U8 *ptr = (U8 *) &x;					\
-	unsigned bytes = sizeof(data);	\
+	U8 *ptr = (U8 *) &var;				\
+	unsigned bytes = sizeof(var);		\
+	while(bytes--)							\
+		printf("%02X ", *ptr++);		\
+	putchar('\n');							\
+}
+
+#define hexdump_exp(exp)				\
+{												\
+	typeof(data) expr = exp;			\
+	U8 *ptr = (U8 *) &expr;				\
+	unsigned bytes = sizeof(expr);	\
 	while(bytes--)							\
 		printf("%02X ", *ptr++);		\
 	putchar('\n');							\
