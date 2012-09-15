@@ -1,17 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "datatypes.h"
 #include "macros.h"
-#include "endianess.h"
+#include "arp.h"
 
 int main(void)
 {
-	U16 port = 10000;
-
-	hexdump(port);
-
-	hexdump(hton16(port));
-	hexdump(ntoh16(hton16(port)));
+	static U8 buffer[42];
+	arp_request(buffer, (ip_t) {192, 168, 1, 201});
+	
+	hexdump_var(buffer);
 
 	return EXIT_SUCCESS;
 }
