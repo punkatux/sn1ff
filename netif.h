@@ -1,10 +1,14 @@
 #ifndef NETIF_H_
 #define NETIF_H_
 
+#include "datatypes.h"
 #include "eth.h"
 #include "ip.h"
 
-ip_t ip_local = {192, 168, 1, 200};
-mac_t mac_local = {0x48, 0x5b, 0x39, 0x62, 0x1f, 0x60};
+extern ip_t ip_local;
+extern mac_t mac_local;
+
+void netif_init(void);
+U32 netif_write(void *buffer, U32 length);
 
 #endif //NETIF_H_
