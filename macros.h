@@ -1,6 +1,7 @@
 #ifndef MACROS_H_
 #define MACROS_H_
 
+#include <stdio.h>
 #include "datatypes.h"
 
 #define hexdump_var(var)				\
