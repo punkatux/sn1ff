@@ -13,8 +13,11 @@ endianess.o: endianess.c endianess.h datatypes.h
 arp.o: arp.c netif.h endianess.h
 	$(CC) $(CFLAGS) $(LDFLAGS) -c arp.c endianess.c
 
-main: main.c endianess.o arp.o
-	$(CC) $(CFLAGS) $(LDFLAGS) -o main main.c endianess.o arp.o
+netif.o: netif.c netif.h
+	$(CC) $(CFLAGS) $(LDFLAGS) -c netif.c
+
+main: main.c endianess.o arp.o netif.o
+	$(CC) $(CFLAGS) $(LDFLAGS) -o main main.c endianess.o arp.o netif.o
 
 test: main
 	./main
